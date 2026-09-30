@@ -21,7 +21,10 @@ jobs:
         with:
           channel: 'stable'
 
-      - name: Install Dependencies
+      - name: Create Android Platform Files
+        run: flutter create . --platforms=android --org=com.autotrader.app
+
+      - name: Get Dependencies
         run: flutter pub get
 
       - name: Build APK
