@@ -15,21 +15,19 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'zulu'
-        java-version: '17'
+        java-version: '11'
 
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.19.0'
+        flutter-version: '3.0.0'
         channel: 'stable'
 
     - name: Install Dependencies
-      run: flutter pub get --no-example
+      run: flutter pub get
 
     - name: Build APK
-      run: flutter build apk --release --no-pub --suppress-analytics
-      env:
-        PUB_ENVIRONMENT: "bot"
+      run: flutter build apk --release
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
